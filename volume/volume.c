@@ -1,9 +1,9 @@
 
 #include <cs50.h>
+#include <math.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 
 // Number of bytes in .wav header
 const int HEADER_SIZE = 44;
