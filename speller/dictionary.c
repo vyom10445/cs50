@@ -4,12 +4,12 @@ https://cs50.harvard.edu/x/2023/psets/5/speller/
 
 // Implements a dictionary's functionality
 
+#include <ctype.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <strings.h>
-#include <ctype.h>
-#include <stdbool.h>
 
 #include "dictionary.h"
 
@@ -18,8 +18,7 @@ typedef struct node
 {
     char word[LENGTH + 1];
     struct node *next;
-}
-node;
+} node;
 
 // Choose number of buckets in hash table
 const unsigned int N = 1000;
@@ -59,7 +58,8 @@ bool check(const char *word)
 // Hashes word to a number
 unsigned int hash(const char *word)
 {
-    // This is the function I came up with, it's not as fast as the staff's implementation but significantly faster than the one from the distribution code
+    // This is the function I came up with, it's not as fast as the staff's implementation but
+    // significantly faster than the one from the distribution code
     int points = 0;
 
     for (int i = 0, len = strlen(word); i < len; i++)
