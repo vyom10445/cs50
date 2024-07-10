@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <h1>Transaction History</h1>
+        <table class="table table-hover">
+            <caption>History</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Symbol</th>
+                    <th scope="col">Shares  </th>
+                    <th scope="col">Price   </th>
+                    <th scope="col">Transaction Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stock in stock_summaryp %}
+                <tr>
+                    <td>{{ stock.stock }}</td>
+                    <td>{{ stock.shares }}</td>
+                    <!-- List price because we convert the value to USD in python -->
+                    <td>{{ stock.listprice }}</td>
+                    <td>{{ stock.time_utc }} UTC</td>
+                {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+{% endblock %}
+
+
+    <!-- <form action="/buy" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="symbol" name="symbol" placeholder="Symbol" type="text">
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="shares" name="shares" placeholder="Shares" type="number" step="1" pattern="\d+">
+        </div>
+        <button class="btn btn-primary" type="submit">Buy Shares</button>
+    </form> -->

@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <h1>Summary Account</h1>
+        <table class="table table-hover">
+            <caption>Account Summary</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Symbol</th>
+                    <th scope="col">Shares  </th>
+                    <th scope="col">Price   </th>
+                    <th scope="col">Total   </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stock in stock_summaryp%}
+                <tr>
+                    <td>{{ stock.namesh }}</td>
+                    <td>{{ stock.stock }}</td>
+                    <td>{{ stock.sumshares }}</td>
+                    <td>{{ stock.price }}</td>
+                    <td>{{ stock.valueshares }}</td>
+                {% endfor %}
+                </tr>
+                <tr>
+                    <td colspan="3"></td>
+                    <th scope="row" class="table-light">Cash</th>
+                    <td class="table-light"> {{ cashp }} </td>
+                </tr>
+                <tr>
+                    <td colspan="3"></td>
+                    <th scope="row" class="table-light">TOTAL</th>
+                    <td class="table-light"> {{ gtotalp }} </td>
+                </tr>
+            </tbody>
+        </table>
+{% endblock %}
+
+
+    <!-- <form action="/buy" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="symbol" name="symbol" placeholder="Symbol" type="text">
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="shares" name="shares" placeholder="Shares" type="number" step="1" pattern="\d+">
+        </div>
+        <button class="btn btn-primary" type="submit">Buy Shares</button>
+    </form> -->
